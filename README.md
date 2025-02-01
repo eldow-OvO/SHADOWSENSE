@@ -33,5 +33,5 @@ For details, see the [Commercial License](LICENSE-COMMERCIAL).
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/ShadowSense.git
+   git clone [https://github.com/eldow-OvO/SHADOWSENSE.git]
    cd ShadowSense
