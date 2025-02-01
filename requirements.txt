@@ -1,0 +1,7 @@
+requests
+numpy
+scikit-learn
+torch
+beautifulsoup4
+selenium
+fake_useragent
