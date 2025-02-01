@@ -1,0 +1,11 @@
+text,label
+"SELECT * FROM users WHERE id = 1",0
+"' OR 1=1 --",1
+"<script>alert('XSS')</script>",1
+"Hello, world!",0
+"admin' --",1
+"<img src=x onerror=alert(1)>",1
+"Normal input with no vulnerabilities",0
+"1' UNION SELECT null, null, null --",1
+"<body onload=alert('XSS')>",1
+"Safe SQL query with no issues",0
