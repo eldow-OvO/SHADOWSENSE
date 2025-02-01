@@ -35,3 +35,21 @@ For details, see the [Commercial License](LICENSE-COMMERCIAL).
    ```bash
    git clone [https://github.com/eldow-OvO/SHADOWSENSE.git]
    cd ShadowSense
+   
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+
+3. Run the tool:
+   ```bash
+   python src/main.py
+
+##Contributing
+
+We welcome contributions! Please read our [Contribution Guidelines](CONTRIBUTING.md) for details.
+
+##Code of Conduct
+Please review our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
+
+##Contact
+For commercial licensing or other inquiries, contact sreerajanjankudy@gmail.com.
