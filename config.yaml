@@ -1,0 +1,14 @@
+# Proxy configuration (leave empty to disable)
+proxies:
+  - "http://proxy1.example.com:8080"
+  - "http://proxy2.example.com:8080"
+
+# AI model configuration
+ai_model_path: "models/shadow_sense_ai"
+
+# Fuzzing configuration
+payload_dir: "data/payloads"
+max_retries: 3
+
+# Logging configuration
+log_level: "INFO"
