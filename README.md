@@ -1,6 +1,7 @@
 # ShadowSense
 
-![ShadowSense Logo](https://via.placeholder.com/150) <!-- Add a logo if you have one -->
+[logo (2)](https://github.com/user-attachments/assets/530cdd50-1d72-4946-9029-525061aca8b3)
+<!-- Add a logo if you have one -->
 
 **ShadowSense** is an AI-powered stealthy web vulnerability scanner designed to detect advanced vulnerabilities in web applications without leaving traces. It combines stealth techniques, AI-driven detection, and fuzzing to provide comprehensive security assessments.
 
@@ -26,7 +27,7 @@ For details, see the [Free License](LICENSE-FREE).
 - Allows commercial use, modification, and distribution.
 - **Requirements**:
   - Purchase a commercial license.
-  - Contact [your-email@example.com] for pricing and terms.
+  - Contact [sreerajanjankudy@gmail.com] for pricing and terms.
 
 For details, see the [Commercial License](LICENSE-COMMERCIAL).
 
