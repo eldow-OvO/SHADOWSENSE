@@ -44,12 +44,12 @@ For details, see the [Commercial License](LICENSE-COMMERCIAL).
    ```bash
    python src/main.py
 
-##Contributing
+## Contributing
 
 We welcome contributions! Please read our [Contribution Guidelines](CONTRIBUTING.md) for details.
 
-##Code of Conduct
+## Code of Conduct
 Please review our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
 
-##Contact
+## Contact
 For commercial licensing or other inquiries, contact sreerajanjankudy@gmail.com.
