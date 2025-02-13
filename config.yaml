@@ -1,5 +1,2 @@
-proxies:
-  - "http://proxy1.example.com:8080"
-  - "http://proxy2.example.com:8080"
-
+proxies: []
 payload_dir: "data/payloads"
