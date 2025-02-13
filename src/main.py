@@ -7,7 +7,6 @@ from fuzzing_engine import FuzzingEngine
 from reporting import ReportGenerator
 
 def main():
-    # Setup
     logging.basicConfig(level=logging.INFO)
     
     # Load config
@@ -15,28 +14,31 @@ def main():
         config = yaml.safe_load(f)
     
     # Initialize components
-    stealth = StealthRequestHandler(proxy_list=config["proxies"])
-    fuzzer = FuzzingEngine(config["payload_dir"])
+    stealth = StealthRequestHandler(proxies=config.get("proxies", []))
+    fuzzer = FuzzingEngine(config.get("payload_dir", "data/payloads"))
     reporter = ReportGenerator()
     
+    # Load AI model
     try:
         ai_model = AIVulnerabilityDetector.load_model("models/shadow_sense_ai")
     except:
-        logging.warning("AI model not found! Using placeholder predictions.")
+        logging.warning("AI model not found! Running without AI validation.")
         ai_model = None
 
-    # Run scan
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-u", "--url", required=True)
-    parser.add_argument("-f", "--field", required=True)
+    # Parse arguments
+    parser = argparse.ArgumentParser(description="ShadowSense Vulnerability Scanner")
+    parser.add_argument("-u", "--url", required=True, help="Target URL to scan")
+    parser.add_argument("-p", "--param", required=True, help="Parameter to test")
     args = parser.parse_args()
 
-    findings = fuzzer.fuzz(args.url, args.field, stealth)
+    # Run scan
+    findings = fuzzer.fuzz(args.url, args.param, stealth)
     
-    # Analyze results
+    # Analyze findings
     for finding in findings:
         if ai_model:
-            finding["confidence"] = ai_model.predict(finding["payload"])
+            confidence = ai_model.predict(finding["payload"])
+            finding["confidence"] = round(confidence, 2)
         reporter.add_finding(finding)
     
     # Generate report
