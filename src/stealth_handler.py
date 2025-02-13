@@ -2,31 +2,30 @@ import requests
 import random
 import time
 import logging
-from typing import Optional, Dict, List
 
 class StealthRequestHandler:
-    def __init__(self, max_retries: int = 3, proxy_list: Optional[List[str]] = None):
-        self.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-        self.proxies = proxy_list or []
+    def __init__(self, max_retries=3, proxies=None):
+        self.proxies = proxies or []
         self.max_retries = max_retries
         self.logger = logging.getLogger(__name__)
-
-    def _get_random_headers(self) -> Dict[str, str]:
+        
+    def _get_headers(self):
         return {
-            "User-Agent": self.user_agent,
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-            "Accept-Language": "en-US,en;q=0.5",
+            "User-Agent": random.choice([
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15"
+            ]),
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
         }
 
-    def send_request(self, url: str, method: str = "GET", params: Optional[Dict] = None) -> Optional[requests.Response]:
+    def send_request(self, url, params=None):
         for attempt in range(self.max_retries):
             try:
                 proxy = {"http": random.choice(self.proxies)} if self.proxies else None
-                response = requests.request(
-                    method=method,
-                    url=url,
+                response = requests.get(
+                    url,
                     params=params,
-                    headers=self._get_random_headers(),
+                    headers=self._get_headers(),
                     proxies=proxy,
                     timeout=10,
                     verify=False
@@ -34,6 +33,6 @@ class StealthRequestHandler:
                 time.sleep(random.uniform(1, 3))
                 return response
             except Exception as e:
-                self.logger.error(f"Attempt {attempt + 1} failed: {e}")
+                self.logger.error(f"Attempt {attempt+1} failed: {e}")
                 time.sleep(2 ** attempt)
         return None
